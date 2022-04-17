@@ -207,7 +207,7 @@ describe("warning and crital level", function(){
         assert(15,settingsBill.getTotalCallCost());
     })
 }); */
-describe("The bill with settings factory function", function(){
+describe("The greeting factory function", function(){
     it("should be able to set the name", function(){
         let greeting = GreetingTheUSer();
 
