@@ -222,7 +222,7 @@ describe("The greeting factory function", function(){
         assert.equal(1, greeting.greetingCounter());
     });
 
-    it("should be able to greet the same person 3 times and counter should remain 1", function(){
+    it("the counter should not increment when the same person is greeted 3 times", function(){
         let greeting = GreetingTheUSer();
 
         greeting.IncrementCounter("Thabo");
@@ -231,7 +231,7 @@ describe("The greeting factory function", function(){
         assert.equal(1, greeting.greetingCounter());
     });
 
-    it("should be able to greet 3 diferent people and conter should be 3 ", function(){
+    it("counter should be able to count how many times 3 diferent people have been greeted ", function(){
         let greeting = GreetingTheUSer();
 
         greeting.IncrementCounter("Thabo");
@@ -241,7 +241,7 @@ describe("The greeting factory function", function(){
 
     });
 
-    it("should be able to greet 2 different people 4 times and counter should be 2", function(){
+    it("couter should be able to count how many times 2 different people ", function(){
         let greeting = GreetingTheUSer();
 
         greeting.IncrementCounter("Thabo");
@@ -253,7 +253,7 @@ describe("The greeting factory function", function(){
         assert.equal(2, greeting.greetingCounter());
 
     });
-    it("should be able to remain 0 if no name is enterd", function(){
+    it(" counter should be zero when no name is entered", function(){
         let greeting = GreetingTheUSer();
         assert.equal(0, greeting.greetingCounter());
 
