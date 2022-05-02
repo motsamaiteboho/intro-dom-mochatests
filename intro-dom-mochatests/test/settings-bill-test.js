@@ -206,7 +206,7 @@ describe("warning and crital level", function(){
         settingsBill.makeCall();
         assert(15,settingsBill.getTotalCallCost());
     })
-}); */
+});
 describe("The greeting factory function", function(){
 
     it("should be able to count how many times the same name has been greeted", function(){
@@ -305,4 +305,53 @@ describe("Reset", function(){
         greeting.resetCounter();
         assert.equal("", greeting.greetingNames());
     })
+});*/
+describe("Registration number", function(){
+    it("it should add a registration number", function(){
+        let regNumbers =  RegstrationNumbers();
+
+        regNumbers.addRegistration('CA 455 466');
+        assert.equal( ['CA 455 466'], regNumbers.AllRegNumbers().toString());
+    })
+    it("it should return all the registration numbers from all the towns", function(){
+        let regNumbers =  RegstrationNumbers();
+
+        regNumbers.addRegistration('CA 455 466');
+        regNumbers.addRegistration('CL 775-957');
+        regNumbers.addRegistration('CY 777777')
+        assert.equal( ['CA 455 466', 'CL 775-957', 'CY 777777'], regNumbers.AllRegNumbers().toString());
+    })
+    it("it should return all the registration numbers from a specified town", function(){
+        let regNumbers =  RegstrationNumbers();
+
+        regNumbers.addRegistration('CA 455 466');
+        regNumbers.addRegistration('CL 775-957');
+        regNumbers.addRegistration('CY 777777')
+        regNumbers.addRegistration('CA 898 896')
+        assert.equal( ['CA 455 466', 'CA 898 896'], regNumbers.filterByTown("capetown").toString());
+
+    })
+
+    it("it should return all the registration numbers from all the towns if no town is specified", function(){
+        let regNumbers =  RegstrationNumbers();
+
+        regNumbers.addRegistration('CA 455 466');
+        regNumbers.addRegistration('CL 775-957');
+        regNumbers.addRegistration('CY 777777')
+        regNumbers.addRegistration('CA 898 896')
+        assert.equal( ['CA 455 466', 'CL 775-957', 'CY 777777','CA 898 896'], regNumbers.filterByTown().toString());
+
+    })
+
+    it("it should be able to reset all registration numbers", function(){
+        let regNumbers =  RegstrationNumbers();
+        regNumbers.addRegistration('CA 455 466');
+        regNumbers.addRegistration('CL 775-957');
+        regNumbers.addRegistration('CY 777777')
+        regNumbers.addRegistration('CA 898 896')
+        regNumbers.resetReg();
+        assert.equal(0, regNumbers.AllRegNumbers().length);
+    })
+    
 });
+
