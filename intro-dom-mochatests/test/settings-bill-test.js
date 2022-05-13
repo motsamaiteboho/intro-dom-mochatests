@@ -305,7 +305,7 @@ describe("Reset", function(){
         greeting.resetCounter();
         assert.equal("", greeting.greetingNames());
     })
-});*/
+});
 describe("Registration number", function(){
     it("it should add a registration number", function(){
         let regNumbers =  RegstrationNumbers();
@@ -354,4 +354,24 @@ describe("Registration number", function(){
     })
     
 });
+*/
+describe("The factory function", function(){
+    it("should be able to set the first date", function(){
+        let matchingDays = MatchingDays();
 
+        matchingDays.setDay1Name("2022-05-13");
+        assert.equal("Friday", matchingDays.getDay1Name());
+    });
+
+    it("should be able to set the second date", function(){
+        let matchingDays = MatchingDays();
+
+        matchingDays.setDay2Name("2022-05-12");
+        assert.equal("Thursday", matchingDays.getDay2Name());
+    });
+
+    it("should be able to return all weekly days", function(){
+        let matchingDays = MatchingDays();
+        assert.equal(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], matchingDays.getWeekDays().toString());
+    });
+});
